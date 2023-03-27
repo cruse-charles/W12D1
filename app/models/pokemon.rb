@@ -42,6 +42,10 @@ class Pokemon < ApplicationRecord
     validates :number, :defense, numericality: {greater_than: 0 }
     validates :poke_type, inclusion: { in: TYPES, message: "'%{value}' is not a valid Pokemon type" }
 
+    has_many :poke_moves,
+      class_name: :PokeMove,
+      foreign_key: :pokemon_id
+
     has_many :moves,
       through: :poke_moves,
       source: :move,
