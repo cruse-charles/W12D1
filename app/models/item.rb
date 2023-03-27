@@ -13,8 +13,8 @@
 #
 class Item < ApplicationRecord
   validates :image_url, presence: true
-  validates :pokemon_id, uniqueness: true
-  validates :name, length: { in: 3..255 }, uniqueness: { message: "'%{value}' is already in use" }
+  # validates :pokemon_id, uniqueness: true
+  validates :name, length: { in: 3..255 }
   validates :pokemon_id, :price, :happiness, numericality: {greater_than: 0 }
 
 
